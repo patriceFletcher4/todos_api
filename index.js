@@ -3,12 +3,28 @@ var server = express();
 
 var port = process.env.port || 8080;
 
-server.use(express.static(__dirname+'/public'));
 
+server.get('/todos/:id', function(request, response){
+  response.send('GET todos');
 
-server.get('/', function(request, response){
-  response.sendFile('public/html/index.html', {root: __dirname});
 });
 
+server.get('/todos/:id', function(request, response){
+  response.send('GET todos :id');
+})
+
+server.post('/todos/', function(request, response){
+  response.send('POST todos :id');
+})
+
+server.put('/todos/:id', function(request, response){
+  response.send('PUT todos :id');
+})
+
+server.delete('/todos/:id', function(request, response){
+  response.send('DELETE todos :id');
+})
+
 server.listen(port, function(){
-  console.log('Now listening on port...' + port);
+  console.log('Now listening on port ' +port);
+});
