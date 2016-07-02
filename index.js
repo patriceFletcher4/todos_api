@@ -15,7 +15,9 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
 server.get('/todos', function(request, response){
-  response.send('GET todos');
+var todos = db.get('todos')
+              .value()
+  response.send('todos');
 });
 
 server.get('/todos/:id', function(request, response){
