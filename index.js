@@ -46,7 +46,7 @@ server.put('/todos/:id', function(request, response){
     description: request.body.description,
     isComplete: request.body.isComplete
   };
-  var updatedTodo = db.get('todo')
+  var updatedTodo = db.get('todos')
                          .find({id: request.params.id})
                          .assign(updatedTodoInfo)
                          .value();
