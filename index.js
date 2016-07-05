@@ -46,7 +46,10 @@ server.put('/todos/:id', function(request, response){
 });
 
 server.delete('/todos/:id', function(request, response){
-  response.send('DELETE todos :id');
+  var todos = db.get('todos')
+               .remove({id: request.params.id})
+               .value();
+  response.send(todo);
 });
 
 server.listen(port, function(){
