@@ -15,12 +15,17 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
 server.get('/todos', function(request, response){
-  response.send('GET todos');
+  var todos = db.get('todos')
+              .value();
+  response.send(todos);
 });
 
 server.get('/todos/:id', function(request, response){
-  response.send('GET todos :id');
-})
+  var todos = db.get('todos')
+               .find({id: request.params.id})
+               .value();
+  response.send(todos);
+});
 
 server.post('/todos', function(request, response){
   var todo = {
@@ -38,11 +43,11 @@ server.post('/todos', function(request, response){
 
 server.put('/todos/:id', function(request, response){
   response.send('PUT todos :id');
-})
+});
 
 server.delete('/todos/:id', function(request, response){
   response.send('DELETE todos :id');
-})
+});
 
 server.listen(port, function(){
   console.log('Now listening on port ' +port);
