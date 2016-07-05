@@ -42,11 +42,19 @@ server.post('/todos', function(request, response){
 });
 
 server.put('/todos/:id', function(request, response){
-  response.send('PUT todos :id');
+  var updatedTodoInfo = {
+    description: request.body.description,
+    isComplete: request.body.isComplete
+  };
+  var updatedTodoInfo = db.get('todo')
+                         .find({id: request.params.id})
+                         .assign(updatedTodoInfo)
+                         .value();
+  response.send(updatedTodoInfo);
 });
 
 server.delete('/todos/:id', function(request, response){
-  var todos = db.get('todos')
+  var todo = db.get('todos')
                .remove({id: request.params.id})
                .value();
   response.send(todo);
