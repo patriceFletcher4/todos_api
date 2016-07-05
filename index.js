@@ -46,11 +46,11 @@ server.put('/todos/:id', function(request, response){
     description: request.body.description,
     isComplete: request.body.isComplete
   };
-  var updatedTodoInfo = db.get('todo')
+  var updatedTodo = db.get('todo')
                          .find({id: request.params.id})
                          .assign(updatedTodoInfo)
                          .value();
-  response.send(updatedTodoInfo);
+  response.send(updatedTodo);
 });
 
 server.delete('/todos/:id', function(request, response){
