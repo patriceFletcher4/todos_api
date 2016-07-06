@@ -4,7 +4,7 @@ var lowdb = require('lowdb');
 var uuid = require('uuid');
 var server = express();
 
-var port = process.env.port || 8080;
+var port = process.env.PORT || 8080;
 var db = lowdb('db.json');
 
 //database initialization
