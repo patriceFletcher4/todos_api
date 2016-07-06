@@ -1,5 +1,5 @@
 var express = require('express');
-var bodyParser = require('body-Parser');
+var bodyParser = require('body-parser');
 var lowdb = require('lowdb');
 var uuid = require('uuid');
 var server = express();
