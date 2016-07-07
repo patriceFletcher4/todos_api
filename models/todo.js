@@ -1,8 +1,8 @@
 var uuid = require('uuid');
 //constructor function
 //How do I build this object?
-function Todo(description){
-  this.id = uuid.v4();
+function Todo(description, id){
+  this.id = id || uuid.v4();
   this.description = description;
   this.isComplete = false;
 }

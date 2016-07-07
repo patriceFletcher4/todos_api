@@ -2,7 +2,18 @@
   "todos": [
     {
       "id": "12160299-acbf-4f24-aac7-a3868812b62e",
-      "description": "does this work"
+      "description": "please work",
+      "isComplete": true
+    },
+    {
+      "id": "408125ad-dec8-417f-b2e7-56cafc088ce5",
+      "description": "my class rocks",
+      "isComplete": false
+    },
+    {
+      "id": "b3769ca3-44f7-481d-b5c1-a175af4cd9da",
+      "description": "it really works this time",
+      "isComplete": false
     }
   ]
 }
